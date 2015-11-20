@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+    <title>图书管理系统</title>
+</head>
+<body>
+<div>
+<form method="post">
+	<p align="center">
+	<input type="text" name="name" />
+	<input type ="submit" value="搜索">
+	</p> 
+</form>
+<tr>
+			<p align="center"><th >书籍</th></p>
+			<p align="center">
+			<th >ISBN</th>
+			<th >作者</th>
+			<th >出版社</th>
+			<th >出版日期</th>
+			<th >价格</th>
+			</p> 
+		</tr>
+		<tr>
+			{%for book in books%}
+			<p align="center">
+			<td>{{book.ISBN}}</td>
+			<td>{{book.AuthorID.Name}}</td>
+			<td>{{book.Publisher}}</td>
+			<td>{{book.PublishDate}}</td>
+			<td>{{book.Price}}</td>
+			</p>
+
+			{%endfor%}
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+{%if books%}
+<p align="center">
+{%for book in books%}
+	<a href="show/{{book.ISBN}}">{{book.Title}}</a>
+{%endfor%}
+</p>
+{% endif%}
+</div>
+</body>
+</html>

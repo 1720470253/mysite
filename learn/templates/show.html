@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+    <title>图书管理系统</title>
+</head>
+<body>
+	<p align="center"><font size="10">搜索结果</font><br /></p> 
+<div>
+	{%if book%}
+	<table align="center">
+
+			<p align = "center"><font size="5">书籍信息</font></p>
+			<tr>
+			<td >ISBN&nbsp;</td>
+			<td><input type="text"  value= {{book.ISBN}}></td>
+		</tr>
+		<tr>
+			<td >作者&nbsp;</td>
+			<td><input type="text"  value= {{book.AuthorID.Name}}><td>
+			</tr>
+			<tr>
+			<td >出版社&nbsp;</td>
+			<td><input type="text"  value= {{book.Publisher}}></td>
+		</tr>
+		<tr>
+			<td  class="justify ">出版日期</td>
+			<td><input type="text"  value= {{book.PublishDate}}></td>
+		</tr>
+		<tr>
+			<td  class="justify ">价格&nbsp;</td>
+			<td><input type="text"  value= {{book.Price}}></td>
+		</tr>
+<table align="center">
+	<p>
+         <tr>
+			<form method="post">
+				<input type="text" name="del" style="display:none" value="{{book.ISBN}}">
+				<td><input type="submit" style="width:100px;height:25px;" value="Delete"><td>
+			</form>
+		</tr>
+	</p>
+<table border='1'>
+		<tr>
+			<th>作者</th>
+			<th>年龄</th>
+			<th>国家</th>
+		</tr>
+		<tr>
+			<td>{{book.AuthorID.Name}}</td>
+			<td>{{book.AuthorID.Age}}</td>
+			<td>{{book.AuthorID.Country}}</td>
+		</tr>
+	</table>
+	{%endif%}
+</div>
+</body>
+</html>
